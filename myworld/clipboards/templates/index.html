@@ -1,0 +1,25 @@
+<h1>Clipboards</h1>
+
+<table border="1">
+{% for x in allclipboards %}
+<tr>
+<td><a href="update/{{ x.ui }}">UPDATE:{{ x.ui }}</a></td>
+<td><a href="view/{{ x.ui }}">VIEW:{{ x.ui }}</a></td>
+<td>{{ x.content }}</td>
+<td><a href="delete/{{ x.ui }}">DELETE</a></td>
+</tr>
+{% endfor %}
+</table>
+
+<p>
+<a href="add/">Create Clipboard</a>
+</p>
+
+Search By Unique id:<br>
+<form action="search/" method="post">
+{% csrf_token %}
+unique id: <br>
+<input name="ui">
+
+<input type="submit" value="Go">
+</form>

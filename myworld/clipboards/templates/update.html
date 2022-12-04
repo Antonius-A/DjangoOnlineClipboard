@@ -1,0 +1,22 @@
+<h1>Update Clipboard</h1>
+
+<form action="updateclipboard/{{ thisclipboard.ui }}" method="post" style="width: 100%">
+{% csrf_token %}
+
+Unique ID:<br>
+<input value="{{ thisclipboard.ui }}" disabled>
+<br>
+Content:<br>
+    <textarea name="content" value="{{ thisclipboard.content }}" rows="20" cols="50"></textarea>
+
+<br><br>
+Passcode Hint:<br>
+<input name="passcode_hint" value="{{ thisclipboard.passcode_hint }}" disabled>
+Passcode:<br>
+<input name="passcode">
+<br><br>
+Minutes until expired:<br>
+<input name="minutes_until_expired" type="number" min="1" max="525600" value="{{ thisclipboard.minutes_until_expired }}" >
+<br><br>
+<input type="submit" value="Update">
+</form>

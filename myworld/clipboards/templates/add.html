@@ -1,0 +1,22 @@
+<h1>Add Clipboard</h1>
+
+<form action="addclipboard/" method="post" style="width: 100%">
+{% csrf_token %}
+Unique Id:<br>
+<input name="ui" value = {{ random_alpha_numberic }} disabled>
+<input name="ui-hidden" value = {{ random_alpha_numberic }} hidden>
+<br><br>
+Content:<br>
+<textarea name="content" required rows="20" col="50"></textarea>
+<br><br>
+Passcode:<br>
+<input name="passcode">
+<br><br>
+Passcode Hint:<br>
+<input name="passcode_hint">
+<br><br>
+Minutes until expired:<br>
+<input name="minutes_until_expired" type="number" min="1" max="525600">
+<br><br>
+<input type="submit" value="Create Clipboard">
+</form>
